@@ -6,13 +6,13 @@
   --form-input-bg: #ffffff90;
   --form-input-border: #00000020;
   --form-input-hover-bg: #ffffff;
-  --form-input-hover-border: rgba(0, 0, 0, 0.2);
+  --form-input-hover-border: rgba(0, 0, 0, 0.3);
   --submit-button-bg: rgba(0, 0, 0, 1.0);
   --submit-button-text: #fff;
   --passive-button-bg: rgba(0, 0, 0, 0.1);
   --passive-button-text: #000;
   --error-color: red;
-  --message-color: #08531b; /* dark green */
+  --message-color: #08531b;
   --message-bg: #15bd3f21;
   --message-border: #15bd3f4e;
   --svg-success-fill: #0c7125;
@@ -21,7 +21,7 @@
 /* Dark theme overrides based on system settings */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #000;
+    --bg-color: #111111;
     --text-color: #fff;
     --container-bg: #000;
     --form-input-bg: rgba(255, 255, 255, 0.1);
@@ -55,7 +55,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   min-height: 100vh;
   max-width: 480px;
@@ -88,7 +88,7 @@ p {
 }
 
 label {
-  opacity: 0.4;
+  opacity: 0.6;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 125%;
@@ -122,7 +122,7 @@ label {
 .form-input {
   display: block;
   width: 100% !important;
-  height: 56px;
+  height: 64px;
   margin-bottom: 16px;
   padding: 0 24px;
   box-sizing: border-box;
@@ -131,9 +131,9 @@ label {
   border-radius: 99px;
   outline: none;
   color: var(--text-color);
-  font-size: 16px;
+  font-size: 1.125rem;
   transition: background 0.3s, border 0.3s;
-  box-shadow: 0px 3px 6px rgba(0,0,0,0.07);
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.06);
   font-family: 'Inter', sans-serif !important;
 }
 
@@ -209,4 +209,10 @@ label {
 /* Style for inline SVG elements with class 'success' */
 svg .success {
   fill: var(--svg-success-fill) !important;
+}
+
+
+.baseline-wordmark {
+  color: var(--text-color) !important;
+  fill: currentColor !important;
 }
