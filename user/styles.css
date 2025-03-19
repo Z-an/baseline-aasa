@@ -155,13 +155,15 @@ label {
 }
 
 .submit-button {
-  display: block;
+  display: flex;
   width: 100% !important;
   height: 64px;
   margin-top: 8px;
   border: none;
   border-radius: 99px;
   cursor: pointer;
+  justify-content: center;
+  text-align: center;
   font-size: 1rem;
   font-weight: 500;
   font-family: 'Inter', sans-serif !important;
@@ -169,6 +171,10 @@ label {
   color: var(--submit-button-text);
   transition: background 0.3s, transform 0.1s;
   opacity: 0.5;
+}
+
+link {
+  all: unset;
 }
 
 /* Change opacity to 100% when the email field is valid */
