@@ -1,165 +1,212 @@
-/* Set the default font to Inter */
+/* Light theme variables as default */
+:root {
+  --bg-color: #f1f3f6;
+  --text-color: #000;
+  --container-bg: #fff;
+  --form-input-bg: #ffffff90;
+  --form-input-border: #00000020;
+  --form-input-hover-bg: #ffffff;
+  --form-input-hover-border: rgba(0, 0, 0, 0.2);
+  --submit-button-bg: rgba(0, 0, 0, 1.0);
+  --submit-button-text: #fff;
+  --passive-button-bg: rgba(0, 0, 0, 0.1);
+  --passive-button-text: #000;
+  --error-color: red;
+  --message-color: #08531b; /* dark green */
+  --message-bg: #15bd3f21;
+  --message-border: #15bd3f4e;
+  --svg-success-fill: #0c7125;
+}
+
+/* Dark theme overrides based on system settings */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000;
+    --text-color: #fff;
+    --container-bg: #000;
+    --form-input-bg: rgba(255, 255, 255, 0.1);
+    --form-input-border: #ffffff10;
+    --form-input-hover-bg: rgba(255, 255, 255, 0.15);
+    --form-input-hover-border: #fff;
+    --submit-button-bg: rgba(255, 255, 255, 1.0);
+    --submit-button-text: #000;
+    --passive-button-bg: rgba(255, 255, 255, 0.15);
+    --passive-button-text: #fff;
+    --error-color: red;
+    --message-color: #00ff00;
+    --message-bg: #00ff000a;
+    --message-border: #00ff0024;
+    --svg-success-fill: #00ff00;
+  }
+}
+
+/* Global Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    color: #fff;
-    background: #000;
-  }
-  
-  .container {
-    margin: 0 auto;
-    padding: 32px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 100vh;
-    max-width: 480px;
-  }
-  
-  .leading-vertical-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: start;
-    align-items: start;
-    padding: 0;
-  }
-  
-  h1, h2 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    font-weight: 500;
-  }
-  
-  h1 {
-    font-size: 2.75rem;
-    line-height: 110%;
-  }
-  
-  p {
-    all: unset;
-    opacity: 0.6;
-    font-weight: 400;
-  }
-  
-  label {
-    opacity: 0.4;
-    font-weight: 400;
-    font-size: 0.875rem;
-    line-height: 125%;
-  }
-  
-  .centered {
-    text-align: center;
-  }
-  
-  .padding {
-    padding: 0.75rem;
-  }
-  
-  .centered {
-    margin: auto;
-    text-align: center;
-  }
-  
-  .container input {
-    min-width: 320px !important;
-    max-width: 480px !important;
-    width: 100% !important;
-  }
-  
-  .container form {
-    min-width: 320px !important;
-    max-width: 480px !important;
-    width: 100% !important;
-  }
-  
-  .form-input {
-    display: block;
-    width: 100% !important;
-    height: 56px;
-    margin-bottom: 16px;
-    padding: 0 24px;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #ffffff10;
-    border-radius: 99px;
-    outline: none;
-    color: #fff;
-    font-size: 16px;
-    transition: background 0.3s, border 0.3s;
-  }
-  
-  /* Hover and focus styles for the form field */
-  .form-input:hover,
-  .form-input:focus {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid #fff;
-  }
-  
-  .form-input::placeholder {
-    color: #ffffff60;
-  }
-  
-  .submit-button {
-    display: block;
-    width: 100% !important;
-    height: 64px;
-    margin-top: 8px;
-    border: none;
-    border-radius: 99px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 1.0);
-    color: #000;
-    transition: background 0.3s, transform 0.1s;
-    opacity: 0.5;
-  }
-  
-  /* Change opacity to 100% when the email field is valid */
-  .form-input:valid + .submit-button {
-    opacity: 1;
-  }
-  
-  /* Active style for the button */
-  .submit-button:active {
-    transform: scale(0.98);
-  }
-  
-    /* Passive state modifier */
-    .submit-button.passive {
-        background: rgba(255, 255, 255, 0.15);
-        color: #fff;
-        opacity: 1;
-    }
-  
-  .error {
-    color: red;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
-  .message {
-    display: none;
-    justify-content: start;
-    gap: 0.5rem;
-    color: #00ff00;
-    text-align: left;
-    background: #00ff000a;
-    padding: 1.25rem;
-    border: solid 2px #00ff0024;
-    border-radius: 13px;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
 
-  .container > .leading-vertical-stack:first-child {
-    align-self: flex-start;
-  }
-  
+.container {
+  margin: 0 auto;
+  padding: 32px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  max-width: 480px;
+}
 
-  svg .success {
-    fill: #00ff00 !important;
-  }
+.leading-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: start;
+  align-items: start;
+  padding: 0;
+}
+
+h1, h2 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.75rem;
+  line-height: 110%;
+}
+
+p {
+  all: unset;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+label {
+  opacity: 0.4;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 125%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.padding {
+  padding: 0.75rem;
+}
+
+.centered {
+  margin: auto;
+  text-align: center;
+}
+
+.container input {
+  min-width: 320px !important;
+  max-width: 480px !important;
+  width: 100% !important;
+}
+
+.container form {
+  min-width: 320px !important;
+  max-width: 480px !important;
+  width: 100% !important;
+}
+
+.form-input {
+  display: block;
+  width: 100% !important;
+  height: 56px;
+  margin-bottom: 16px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  background: var(--form-input-bg);
+  border: 1px solid var(--form-input-border);
+  border-radius: 99px;
+  outline: none;
+  color: var(--text-color);
+  font-size: 16px;
+  transition: background 0.3s, border 0.3s;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.07);
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Hover and focus styles for the form field */
+.form-input:hover,
+.form-input:focus {
+  background: var(--form-input-hover-bg);
+  border: 1px solid var(--form-input-hover-border);
+}
+
+.form-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+.submit-button {
+  display: block;
+  width: 100% !important;
+  height: 64px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif !important;
+  background: var(--submit-button-bg);
+  color: var(--submit-button-text);
+  transition: background 0.3s, transform 0.1s;
+  opacity: 0.5;
+}
+
+/* Change opacity to 100% when the email field is valid */
+.form-input:valid + .submit-button {
+  opacity: 1;
+}
+
+/* Active style for the button */
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/* Passive state modifier */
+.submit-button.passive {
+  background: var(--passive-button-bg);
+  color: var(--passive-button-text);
+  opacity: 1;
+}
+
+.error {
+  color: var(--error-color);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.message {
+  display: none;
+  justify-content: start;
+  gap: 0.5rem;
+  color: var(--message-color);
+  text-align: left;
+  background: var(--message-bg);
+  padding: 1.25rem;
+  border: solid 2px var(--message-border);
+  border-radius: 13px;
+  margin: 1rem 0;
+}
+
+.container > .leading-vertical-stack:first-child {
+  align-self: flex-start;
+}
+
+/* Style for inline SVG elements with class 'success' */
+svg .success {
+  fill: var(--svg-success-fill) !important;
+}
