@@ -180,6 +180,8 @@ h3 {
 
 link {
   all: unset;
+  text-decoration: none;
+  opacity: 1 !important;
 }
 
 /* Change opacity to 100% when the email field is valid */
